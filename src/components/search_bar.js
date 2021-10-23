@@ -18,7 +18,7 @@ class SearchBar extends Component {
    // class components must have a render method
    render() {
       return (
-         <div>
+         <div className="search-bar">
             <input
                // this makes it a controlled component, the value only changes when the state changes
                value={this.state.search}
