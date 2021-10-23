@@ -12,7 +12,7 @@ class SearchBar extends Component {
 
       // whenever we use state, we initialize it by creating a new object
       // and assigning it to this state
-      this.state = { search: '' }
+      this.state = { term: '' }
    }
 
    // class components must have a render method
@@ -21,12 +21,17 @@ class SearchBar extends Component {
          <div className="search-bar">
             <input
                // this makes it a controlled component, the value only changes when the state changes
-               value={this.state.search}
+               value={this.state.term}
                // always use setState to change the state value
-               onChange={ event => this.setState({ search: event.target.value }) }
+               onChange={event => this.onInputChange(event.target.value)}
             />
          </div>
       );
+   }
+
+   onInputChange(term) {
+      this.setState({term});
+      this.props.onSearchTermChange(term);
    }
 }
 
